@@ -36,10 +36,13 @@ public class CustomerSearchManager {
             customers = customerSearchService.search(customerSearchRequest);
         } catch (Exception exception) {
             if (exception instanceof InvalidSearchRequestException) {
-                return Response.status(Response.Status.BAD_GATEWAY)
+                return Response.status(Response.Status.BAD_REQUEST)
                         .entity(exception.getMessage())
                         .build();
             }
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(exception.getMessage())
+                    .build();
         }
         return Response.status(Response.Status.OK).entity(customers).build();
     }
