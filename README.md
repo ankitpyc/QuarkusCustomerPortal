@@ -1,10 +1,8 @@
 # QuarkusCustomerPortal
 
-# Problem Statement 1
-
 This document provides an overview of the Customer API, including endpoints for creating and querying customers.
 
-## Table of Contents
+# Table of Contents
 
 - [Customer Model](#customer-model)
 - [Endpoints](#endpoints)
@@ -28,6 +26,15 @@ The `Address` model includes:
 - City
 - State
 - Zip
+
+
+# Problem Statement 1
+
+-  Create an API to create customers
+-  Need an API to get Customers 
+Query by Name , city , state 
+If no parameter is supplied get all customers 
+
 
 ## Endpoints
 
@@ -57,6 +64,12 @@ POST /customers/create
 ```json
 Customer Created Successfully with customer Id : 65d8b0ff8b35683814a23dc4
 ```
+# Kafka Publish 
+
+Post the customer is created in Db , a message is published to kafka
+
+<img width="986" alt="Screenshot 2024-02-23 at 8 22 59 PM" src="https://github.com/ankitpyc/QuarkusCustomerPortal/assets/13076644/eb3fd2d6-0591-4857-873e-53156b18c493">
+
 
 ### Search Customer
 
@@ -255,5 +268,3 @@ POST /customers/matchCustomers
 
 ```
 
-# Kafka Publish 
-<img width="986" alt="Screenshot 2024-02-23 at 8 22 59 PM" src="https://github.com/ankitpyc/QuarkusCustomerPortal/assets/13076644/eb3fd2d6-0591-4857-873e-53156b18c493">
