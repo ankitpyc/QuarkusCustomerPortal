@@ -1,13 +1,26 @@
 package org.customerPortal.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
 public class Address {
+
+    @JsonProperty("addressType")
     public String addressType;
+
+    @JsonProperty("address1")
     public String address1;
+
+    @JsonProperty("address2")
     public String address2;
+
+    @JsonProperty("city")
     public String city;
+
+    @JsonProperty("state")
     public String state;
+
+    @JsonProperty("zipcode")
     public String zipcode;
 
     public String getAddressType() {

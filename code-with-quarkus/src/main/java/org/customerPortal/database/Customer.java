@@ -1,5 +1,6 @@
 package org.customerPortal.database;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.quarkus.mongodb.panache.PanacheMongoEntityBase;
 import io.quarkus.mongodb.panache.common.MongoEntity;
 import org.customerPortal.dto.Address;
@@ -9,16 +10,29 @@ import org.bson.types.ObjectId;
 import java.util.List;
 import java.util.Objects;
 
-@MongoEntity(collection = "persons")
+@MongoEntity(collection = "customer")
 public class Customer extends PanacheMongoEntityBase {
+
+    @JsonProperty("firstName")
     public String firstName;
+
+    @JsonProperty("lastName")
     public String lastName;
+
+    @JsonProperty("age")
     public Integer age;
+
+    @JsonProperty("spendingLimit")
     public Double spendingLimit;
+
+    @JsonProperty("mobileNumber")
     public String mobileNumber;
+
+    @JsonProperty("addresses")
     public List<Address> addresses;
 
     @BsonId
+    @JsonProperty("customerId")
     private ObjectId customerId;
 
     public String getFirstName() {
