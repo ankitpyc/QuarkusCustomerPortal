@@ -1,20 +1,25 @@
 package org.acme.database;
 
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
+import io.quarkus.mongodb.panache.PanacheMongoEntityBase;
 import io.quarkus.mongodb.panache.common.MongoEntity;
 import org.acme.dto.Address;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 @MongoEntity(collection = "persons")
-public class Customer extends PanacheMongoEntity {
+public class Customer extends PanacheMongoEntityBase {
     public String firstName;
     public String lastName;
-    public String customerId;
     public Integer age;
     public Double spendingLimit;
     public String mobileNumber;
     public List<Address> addresses;
+
+    @BsonId
+    private ObjectId customerId;
 
     public String getFirstName() {
         return firstName;
@@ -62,6 +67,14 @@ public class Customer extends PanacheMongoEntity {
 
     public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
+    }
+
+    public ObjectId getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(ObjectId customerId) {
+        this.customerId = customerId;
     }
 }
 

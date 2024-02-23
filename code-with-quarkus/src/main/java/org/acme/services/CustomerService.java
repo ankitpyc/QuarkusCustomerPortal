@@ -8,33 +8,29 @@ import org.acme.database.exceptions.InvalidCustomerDetailsException;
 import org.acme.database.messaging.MessagePublisher;
 import org.acme.database.repositories.CustomerRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import org.slf4j.Logger;
 
 @ApplicationScoped
 public class CustomerService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
     @Inject
     CustomerRepository customerRepository;
-
     @Inject
     MessagePublisher messagePublisher;
-
     @Inject
     CustomerValidator customerValidator;
 
-    public Customer getCustomer(String id) {
-        Customer customer = customerRepository.findById(new ObjectId(id));
-        return customer;
-    }
-
     public Response updateCustomerDetails(Customer customer) {
+
         try {
             customerValidator.validateCustomer(customer);
             customerRepository.persist(customer);
             messagePublisher.publishCustomer(customer);
         } catch (Exception exception) {
-            System.out.println("gpt eded");
             if (exception instanceof InvalidCustomerDetailsException) {
                 return Response.status(Response.Status.BAD_REQUEST)
                         .entity(exception.getMessage())
@@ -43,11 +39,6 @@ public class CustomerService {
         }
 
         return Response.status(Response.Status.CREATED).entity("Customer Created Successfully").build();
-    }
-
-    public List<Customer> getByNameAndCity(String name, int age) {
-        System.out.println("Getting name and CIryt" + name + " " + age);
-        return customerRepository.getByNameAndCity(name, age);
     }
 
 }
