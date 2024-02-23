@@ -19,7 +19,7 @@ public class CustomerManager {
     @Path("/create")
     @Produces(MediaType.APPLICATION_JSON)
     public Customer saveCustomer(Customer customer) {
-        System.out.println("got request " + customer);
+        System.out.println("got request " + customer.firstName);
         customerService.updateCustomerDetails(customer);
         return customer;
     }
