@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Path("customers/search")
+@Path("customers")
 public class CustomerSearchManager {
 
     @Inject
@@ -27,6 +27,7 @@ public class CustomerSearchManager {
     MatchCustomerService matchCustomerService;
 
     @POST
+    @Path("/search")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCustomers(CustomerSearchRequest customerSearchRequest) {
