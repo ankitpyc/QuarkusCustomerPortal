@@ -2,23 +2,24 @@ package org.customerPortal;
 
 
 import io.quarkus.test.junit.QuarkusTest;
-import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.core.Response;
 import org.bson.types.ObjectId;
 import org.customerPortal.database.Customer;
 import org.customerPortal.dto.Address;
+import org.customerPortal.dto.MatchCustomerRequests;
 import org.customerPortal.dto.MatchResponse;
+import org.customerPortal.services.MatchCustomerService;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
 public class GetMatchingAndNonMatchingCustomerTest {
 
     @Inject
-    CustomerSearchManager customerSearchManager;
+    MatchCustomerService matchCustomerService;
 
     public static List<Customer> createListA() {
         List<Customer> listA = new ArrayList<>();
@@ -102,10 +103,10 @@ public class GetMatchingAndNonMatchingCustomerTest {
 
         requests.setCustomersListA(customerListA);
         requests.setCustomersListB(customerListB);
-        Response response = customerSearchManager.matchCustomers(requests);
-        MatchResponse matchResponse = (MatchResponse) response.getEntity();
-
-        assertEquals(matchResponse.getInBothList().size(), 2);
+        MatchResponse response = matchCustomerService.getMatchingAndNonMatchingCustomer(requests);
+        assertEquals(response.getInBothList().size(), 2);
+        assertEquals(response.getOnlyInListA().size(), 2);
+        assertEquals(response.getOnlyInListB().size(), 2);
 
     }
 

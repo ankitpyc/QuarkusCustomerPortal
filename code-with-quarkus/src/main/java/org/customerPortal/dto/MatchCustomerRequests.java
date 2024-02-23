@@ -1,4 +1,4 @@
-package org.customerPortal;
+package org.customerPortal.dto;
 
 import org.customerPortal.database.Customer;
 
