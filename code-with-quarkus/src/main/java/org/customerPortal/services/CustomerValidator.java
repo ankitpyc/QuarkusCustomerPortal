@@ -1,10 +1,9 @@
-package org.acme.services;
+package org.customerPortal.services;
 
 import io.netty.util.internal.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.acme.CustomerManager;
-import org.acme.database.Customer;
-import org.acme.database.exceptions.InvalidCustomerDetailsException;
+import org.customerPortal.database.Customer;
+import org.customerPortal.database.exceptions.InvalidCustomerDetailsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,11 +1,9 @@
-package org.acme.services;
+package org.customerPortal.services;
 
 import io.netty.util.internal.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.acme.database.Customer;
-import org.acme.database.exceptions.InvalidCustomerDetailsException;
-import org.acme.database.exceptions.InvalidSearchRequestException;
-import org.acme.dto.CustomerSearchRequest;
+import org.customerPortal.database.exceptions.InvalidSearchRequestException;
+import org.customerPortal.dto.CustomerSearchRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

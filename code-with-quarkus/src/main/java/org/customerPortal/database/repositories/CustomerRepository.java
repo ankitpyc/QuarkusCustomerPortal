@@ -1,8 +1,8 @@
-package org.acme.database.repositories;
+package org.customerPortal.database.repositories;
 
 import io.quarkus.mongodb.panache.PanacheMongoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.acme.database.Customer;
+import org.customerPortal.database.Customer;
 
 import java.util.List;
 

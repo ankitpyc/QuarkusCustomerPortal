@@ -1,4 +1,4 @@
-package org.acme.dto;
+package org.customerPortal.dto;
 
 import java.util.Objects;
 

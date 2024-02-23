@@ -1,10 +1,10 @@
-package org.acme.services;
+package org.customerPortal.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.acme.database.Customer;
-import org.acme.database.repositories.CustomerRepository;
-import org.acme.dto.CustomerSearchRequest;
+import org.customerPortal.database.Customer;
+import org.customerPortal.database.repositories.CustomerRepository;
+import org.customerPortal.dto.CustomerSearchRequest;
 
 import java.util.List;
 

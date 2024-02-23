@@ -1,15 +1,14 @@
-package org.acme;
+package org.customerPortal;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.acme.database.Customer;
-import org.acme.database.exceptions.InvalidSearchRequestException;
-import org.acme.dto.CustomerSearchRequest;
-import org.acme.dto.MatchResponse;
-import org.acme.services.CustomerSearchRequestValidator;
-import org.acme.services.CustomerSearchService;
+import org.customerPortal.database.Customer;
+import org.customerPortal.database.exceptions.InvalidSearchRequestException;
+import org.customerPortal.dto.CustomerSearchRequest;
+import org.customerPortal.dto.MatchResponse;
+import org.customerPortal.services.CustomerSearchService;
 
 import java.util.HashSet;
 import java.util.List;

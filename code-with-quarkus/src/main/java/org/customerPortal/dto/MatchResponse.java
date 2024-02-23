@@ -1,6 +1,6 @@
-package org.acme.dto;
+package org.customerPortal.dto;
 
-import org.acme.database.Customer;
+import org.customerPortal.database.Customer;
 
 import java.util.List;
 

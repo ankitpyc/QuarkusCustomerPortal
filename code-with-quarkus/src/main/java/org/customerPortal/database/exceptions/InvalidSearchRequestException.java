@@ -1,4 +1,4 @@
-package org.acme.database.exceptions;
+package org.customerPortal.database.exceptions;
 
 public class InvalidSearchRequestException extends RuntimeException {
 

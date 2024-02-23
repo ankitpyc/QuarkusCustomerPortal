@@ -1,4 +1,4 @@
-package org.acme.dto;
+package org.customerPortal.dto;
 
 public class CustomerSearchRequest {
 

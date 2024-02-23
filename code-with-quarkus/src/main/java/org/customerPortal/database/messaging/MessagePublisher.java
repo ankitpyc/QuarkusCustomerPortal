@@ -1,9 +1,9 @@
-package org.acme.database.messaging;
+package org.customerPortal.database.messaging;
 
 import jakarta.inject.Inject;
 import io.smallrye.reactive.messaging.kafka.Record;
-import org.acme.database.Customer;
-import org.acme.services.CustomerValidator;
+import org.customerPortal.database.Customer;
+import org.customerPortal.services.CustomerValidator;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.slf4j.Logger;

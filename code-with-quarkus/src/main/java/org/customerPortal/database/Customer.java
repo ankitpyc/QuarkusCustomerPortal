@@ -1,9 +1,8 @@
-package org.acme.database;
+package org.customerPortal.database;
 
-import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import io.quarkus.mongodb.panache.PanacheMongoEntityBase;
 import io.quarkus.mongodb.panache.common.MongoEntity;
-import org.acme.dto.Address;
+import org.customerPortal.dto.Address;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
@@ -83,12 +82,12 @@ public class Customer extends PanacheMongoEntityBase {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return firstName.equals(customer.firstName) && lastName.equals(customer.lastName) && Objects.equals(mobileNumber, customer.mobileNumber) && Objects.equals(addresses, customer.addresses) && Objects.equals(customerId, customer.customerId);
+        return firstName.equals(customer.firstName) && lastName.equals(customer.lastName) && Objects.equals(mobileNumber, customer.mobileNumber)  && Objects.equals(customerId, customer.customerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, mobileNumber, addresses, customerId);
+        return Objects.hash(firstName, lastName, mobileNumber, customerId);
     }
 }
 

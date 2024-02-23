@@ -1,16 +1,14 @@
-package org.acme;
+package org.customerPortal;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.acme.database.Customer;
-import org.acme.services.CustomerService;
+import org.customerPortal.database.Customer;
+import org.customerPortal.services.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 @ApplicationScoped
 @Path("customers")

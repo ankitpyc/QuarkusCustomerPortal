@@ -1,16 +1,13 @@
-package org.acme.services;
+package org.customerPortal.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
-import org.acme.database.Customer;
-import org.acme.database.exceptions.InvalidCustomerDetailsException;
-import org.acme.database.messaging.MessagePublisher;
-import org.acme.database.repositories.CustomerRepository;
-import org.bson.types.ObjectId;
+import org.customerPortal.database.Customer;
+import org.customerPortal.database.exceptions.InvalidCustomerDetailsException;
+import org.customerPortal.database.messaging.MessagePublisher;
+import org.customerPortal.database.repositories.CustomerRepository;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 import org.slf4j.Logger;
 
