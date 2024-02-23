@@ -1,28 +1,34 @@
 package org.customerPortal.database.repositories;
 
 import io.quarkus.mongodb.panache.PanacheMongoRepository;
+import io.quarkus.panache.common.Parameters;
 import jakarta.enterprise.context.ApplicationScoped;
+import org.bson.Document;
 import org.customerPortal.database.Customer;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @ApplicationScoped
 public class CustomerRepository implements PanacheMongoRepository<Customer> {
-
-    public List<Customer> getByNameAndCity(String name, int age) {
-        return list("firstName=?1 and age=?2", name, age);
-    }
-
     public List<Customer> findByNameAndCityAndStateOrFindAll(String name, String city, String state) {
-        if (name != null && city != null && state != null) {
-            List<Customer> matchingCustomers = list("firstName = ?1 and city = ?2 and state = ?3", name, city, state);
-            if (matchingCustomers.isEmpty()) {
-                return listAll(); // Return all customers if no match is found
-            } else {
-                return matchingCustomers;
-            }
-        } else {
-            return listAll();
+        Document query = new Document();
+
+        if (name != null) {
+            query.append("firstName", name);
         }
+
+        if (city != null) {
+            query.append("addresses", new Document("$elemMatch", new Document("city", city)));
+        }
+
+        if (state != null) {
+            query.append("addresses", new Document("$elemMatch", new Document("state", state)));
+        }
+        if (query.isEmpty())
+            return listAll();
+
+        return find(query).list();
     }
 }

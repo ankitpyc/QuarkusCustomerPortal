@@ -1,13 +1,16 @@
 package org.customerPortal.dto;
 
-public class CustomerSearchRequest {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class CustomerSearchRequest {
+    @JsonProperty("firstName")
     String firstName;
+    @JsonProperty("city")
     String city;
+    @JsonProperty("state")
     String state;
 
-    CustomerSearchRequest() {
-    }
+    public CustomerSearchRequest() {}
 
     CustomerSearchRequest(String name, String city, String state) {
         this.city = city;
