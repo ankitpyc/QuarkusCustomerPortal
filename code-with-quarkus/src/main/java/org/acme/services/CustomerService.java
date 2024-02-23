@@ -11,6 +11,7 @@ import org.bson.types.ObjectId;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+
 import org.slf4j.Logger;
 
 @ApplicationScoped
@@ -37,8 +38,9 @@ public class CustomerService {
                         .build();
             }
         }
+        String message = String.format("Customer Created Successfully with customer Id : %s", customer.getCustomerId());
 
-        return Response.status(Response.Status.CREATED).entity("Customer Created Successfully").build();
+        return Response.status(Response.Status.CREATED).entity(message).build();
     }
 
 }
