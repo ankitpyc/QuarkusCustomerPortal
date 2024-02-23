@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.acme.database.Customer;
 import org.acme.services.CustomerService;
 
@@ -18,10 +19,9 @@ public class CustomerManager {
     @POST
     @Path("/create")
     @Produces(MediaType.APPLICATION_JSON)
-    public Customer saveCustomer(Customer customer) {
+    public Response saveCustomer(Customer customer) {
         System.out.println("got request " + customer.firstName);
-        customerService.updateCustomerDetails(customer);
-        return customer;
+        return customerService.updateCustomerDetails(customer);
     }
 
     @GET
@@ -35,8 +35,8 @@ public class CustomerManager {
     @GET
     @Path("/nameAndCity/{name}/{city}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Customer> getCustomers(@PathParam("firstName") String name,@PathParam("age") int age) {
-        List<Customer> customers = customerService.getByNameAndCity("Ankit",30);
+    public List<Customer> getCustomers(@PathParam("firstName") String name, @PathParam("age") int age) {
+        List<Customer> customers = customerService.getByNameAndCity("Ankit", 30);
         return customers;
     }
 }

@@ -1,4 +1,4 @@
-package org.acme.database;
+package org.acme.dto;
 
 public class Address {
     public String addressType;
