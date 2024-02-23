@@ -46,7 +46,7 @@ public class CustomerSearchManager {
     public Response matchCustomers(MatchCustomerRequests matchCustomerRequests) {
 
         List<Customer> customerListA = matchCustomerRequests.getCustomersListA();
-        List<Customer> customerListB = matchCustomerRequests.getCustomersListA();
+        List<Customer> customerListB = matchCustomerRequests.getCustomersListB();
 
         // Optimize using Java Streams and HashSet
         Set<Customer> setA = customerListA.stream().collect(Collectors.toSet());

@@ -8,6 +8,7 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import java.util.List;
+import java.util.Objects;
 
 @MongoEntity(collection = "persons")
 public class Customer extends PanacheMongoEntityBase {
@@ -75,6 +76,19 @@ public class Customer extends PanacheMongoEntityBase {
 
     public void setCustomerId(ObjectId customerId) {
         this.customerId = customerId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return firstName.equals(customer.firstName) && lastName.equals(customer.lastName) && Objects.equals(mobileNumber, customer.mobileNumber) && Objects.equals(addresses, customer.addresses) && Objects.equals(customerId, customer.customerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, mobileNumber, addresses, customerId);
     }
 }
 
