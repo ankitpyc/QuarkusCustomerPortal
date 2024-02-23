@@ -5,7 +5,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import org.customerPortal.database.Customer;
 import org.customerPortal.database.exceptions.InvalidCustomerDetailsException;
-import org.customerPortal.database.messaging.MessagePublisher;
+import org.customerPortal.messaging.MessagePublisher;
 import org.customerPortal.database.repositories.CustomerRepository;
 import org.slf4j.LoggerFactory;
 

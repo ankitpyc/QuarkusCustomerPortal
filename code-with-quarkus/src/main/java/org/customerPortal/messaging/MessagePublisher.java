@@ -1,4 +1,4 @@
-package org.customerPortal.database.messaging;
+package org.customerPortal.messaging;
 
 import jakarta.inject.Inject;
 import io.smallrye.reactive.messaging.kafka.Record;
